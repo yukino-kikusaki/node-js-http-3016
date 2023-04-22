@@ -1,5 +1,5 @@
 'use strict';
-const http = require('http');
+const http = require('node:http');
 const pug = require('pug');
 const server = http
   .createServer((req, res) => {
