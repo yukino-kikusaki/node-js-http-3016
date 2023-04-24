@@ -1,5 +1,5 @@
 'use strict';
-const http = require('http');
+const http = require('node:http');
 const pug = require('pug');
 const server = http
   .createServer((req, res) => {
@@ -11,12 +11,12 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        if (req.url === '/enquetes/yaki-shabu') {
+        if (req.url === '/enquetes/yaki-tofu') {
           res.write(
             pug.renderFile('./form.pug', {
               path: req.url,
               firstItem: '焼き肉',
-              secondItem: 'しゃぶしゃぶ'
+              secondItem: '湯豆腐'
             })
           );
         } else if (req.url === '/enquetes/rice-bread') {
