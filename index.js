@@ -28,11 +28,13 @@ const server = http
             })
           );
         } else if (req.url === '/enquetes/sushi-pizza') {
-          res.write(pug.renderFile('./form.pug', {
-            path: req.url,
-            firstItem: '寿司',
-            secondItem: 'ピザ'
-          }));
+          res.write(
+            pug.renderFile('./form.pug', {
+              path: req.url,
+              firstItem: '寿司',
+              secondItem: 'ピザ'
+            })
+          );
         }
         res.end();
         break;
@@ -46,7 +48,9 @@ const server = http
             const answer = new URLSearchParams(rawData);
             const body = `${answer.get('name')}さんは${answer.get('favorite')}に投票しました`;
             console.info(`[${now}] ${body}`);
-            res.write(`<!DOCTYPE html><html lang="ja"><body><h1>${body}</h1></body></html>`);
+            res.write(
+              `<!DOCTYPE html><html lang="ja"><body><h1>${body}</h1></body></html>`
+            );
             res.end();
           });
         break;
